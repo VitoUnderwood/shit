@@ -17,8 +17,8 @@
 这样做，还有有助于加深对git的理解和使用，例如查看git的提交历史,什么命令不知道？使用git log --help 查看详细的使用方式，英文的困难只能自己解决，这点东西看不了的话直接可以劝退的了。这个是能查到最详细的的使用方式，比你百度的全多了。
 
 使用```git log --reverse```第一条就是初次调教的代码，在github的release页面找到第一个版本对应的commit id
-![](github_release.png)
-![](checkout.png)
+![](fasttext/github_release.png)
+![](fasttext/checkout.png)
 
 这里出现了新的名词 ```detached HEAD``` ，当直接指向一个游离的commit id，HEAD指向的应该是当前操作的分支，但是直接使用的commit id并非一个具体的分支，切回master之后git branch也看不到刚刚做的更改，
 解决方式，给个具体的分支名称，然后merge push就行了。
@@ -65,7 +65,7 @@ sum.o: sum.cpp
 ```
 
 所以流程如下：
-![](make_cmake.png)
+![](fasttext/make_cmake.png)
 
 回归正题，编译之后得到一个fastText二进制文件，直接运行可以看到
 
@@ -189,4 +189,4 @@ int64_t,int32_t,可以理解为typedef的缩写，表示它是通过typedef定�
 
 > gitignore，需要先把本地要忽略的文件删除或转移到仓库外部，push之后，再转移回来，再push一次，远程端才会消失。
 
-![](cbo_vs_skipgram.png)
+![](fasttext/cbo_vs_skipgram.png)
