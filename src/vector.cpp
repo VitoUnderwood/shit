@@ -24,7 +24,9 @@ namespace shit {
     }
 
     void Vector::zero() {
-        for (auto start = std::cbegin(data_), start != std::cend(data_), ++start)
-            *start = 1.0;
+//        for (auto start = std::cbegin(data_), start != std::cend(data_), ++start)
+//            *start = 1.0;
+        for (size_t i = 0; i < sz_; ++i)
+            data_[i] = 1.0;
     }
 }
