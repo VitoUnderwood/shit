@@ -4,7 +4,9 @@
 #include <unordered_map>
 
 #include "args.h"
+#include "vector.h"
 
+using namespace shit;
 
 void printUsage() {
     std::cerr
@@ -26,7 +28,11 @@ void printUsage() {
 }
 
 void train(const std::vector<std::string> args) {
-    std::shared_ptr<Args> a = std::make_shared<Args>();
+    std::shared_ptr<Args> pa = std::make_shared<Args>();
+    pa->parseArgs(args);
+//    FastText fasttext;
+//    fasttext.train(pa);
+    std::cout << args[1] << std::endl;
 }
 
 int main(int argc, char **argv) {
@@ -47,14 +53,16 @@ int main(int argc, char **argv) {
     };
 
     std::vector <std::string> args(argv, argv + argc);
-
+    Vector v(10);
+    v.zero();
+    std::cout << v[0] << std::endl;
     if (args.size() < 2) {
         printUsage();
         exit(EXIT_FAILURE);
     }
 
     switch (commend[args[1]]) {
-        case 1:
+        case 0:
         case 2:
         case 3:{
             train(args);

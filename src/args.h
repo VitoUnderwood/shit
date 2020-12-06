@@ -17,7 +17,45 @@ namespace shit {
     private:
         std::string lossToString(loss_name);
     public:
-        Args()=default;
+        Args();
+        std::string input;
+        std::string output;
+        std::string test;
+        double lr;
+        int lrUpdateRate;
+        int dim;
+        int ws;
+        int epoch;
+        int minCount;
+        int minCountLabel;
+        int neg;
+        int wordNgrams;
+        loss_name loss;
+        model_name model;
+        int bucket;
+        int minn;
+        int maxn;
+        int thread;
+        double t;
+        std::string label;
+        int verbose;
+        std::string pretrainedVectors;
+        int saveOutput;
+
+        bool qout;
+        bool retrain;
+        bool qnorm;
+        size_t cutoff;
+        size_t dsub;
+
+        void parseArgs(const std::vector<std::string>& args);
+        void printHelp();
+        void printBasicHelp();
+        void printDictionaryHelp();
+        void printTrainingHelp();
+        void printQuantizationHelp();
+        void save(std::ostream&);
+        void load(std::istream&);
 
     };
 }
