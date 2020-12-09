@@ -8,25 +8,33 @@
 #include <iostream>
 
 namespace shit {
+	class Matrix;
+	class QMatrix;
+	
     class Vector {
     public:
-//        class Matrix;
-//        class QMatrix;
-
         Vector() = default;
         explicit Vector(std::int64_t); //动态开辟具体大小数组
         ~Vector();
 
         std::int64_t size() const;
         void zero();
-        void mul(float);
-        float norm() const;
+		float norm() const; //2范数
+        void mul(float); //整体乘法
+
         void addVector(const Vector& source);
         void addVector(const Vector&, float);
 
+        void addRow(const Matrix &, std::int64_t);
+		void addRow(const QMatrix &, std::int64_t);
+		void addRow(const Matrix &, std::int64_t, float);
+		void mul(const QMatrix &, const Vector &);
+		void mul(const Matrix &, const Vector &);
+
         std::int64_t argmax();
 
-        float operator[](std::int64_t);
+		float &operator[](int64_t);
+		const float &operator[](int64_t) const;
 
 
     protected:
